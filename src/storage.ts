@@ -52,6 +52,12 @@ export class Storage extends EventEmitter implements EventEmitter {
         });
     }
 
+    getAll(): any {
+        // TODO: is this really necessary? Wanted to keep a bit
+        // of the "private" accessor of data member.
+        return Object.assign({}, this.data);
+    }
+
     load(): void {
         readFile(this.path, 'utf8', (err, data: string) => {
             if (this.ready) {

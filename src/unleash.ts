@@ -166,6 +166,10 @@ export class Unleash extends EventEmitter {
         return this.repository.getToggle(toggleName);
     }
 
+    getAllFeatureToggleDefinitions(): FeatureInterface[] {
+        return this.repository.getToggles();
+    }
+
     count(toggleName: string, enabled: boolean) {
         this.metrics.count(toggleName, enabled);
     }

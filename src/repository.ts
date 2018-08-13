@@ -140,4 +140,9 @@ export default class Repository extends EventEmitter implements EventEmitter {
     getToggle(name: string): FeatureInterface {
         return this.storage.get(name);
     }
+
+    getToggles(): FeatureInterface[] {
+        const data = this.storage.getAll();
+        return Object.keys(data).map(k => data[k]);
+    }
 }
